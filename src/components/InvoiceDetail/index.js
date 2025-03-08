@@ -22,19 +22,7 @@ const InvoiceDetail = () => {
         let stringifiedList = localStorage.getItem("productDetails");
         let parsedList = JSON.parse(stringifiedList);
         if (parsedList === null) {
-            return [{
-                invoiceId: uuidv4(),
-                orderId: 5689745 ,
-                productName: "Books",
-                quantity : 10,
-                tax : 10,
-                regularPrice: 70,
-                dealPrice: 35,
-                customerName: "Shivaji",
-                address: "Bellary",
-                number : 7483057699,
-                gmail : "gmail@gmail.com"
-            }];
+            return [];
         } else {
             return parsedList;
         }
@@ -105,7 +93,7 @@ const InvoiceDetail = () => {
         const parsedData = JSON.parse(details)
         console.log(parsedData)
         return (
-            <ul  style={{width: "95%"}}>{parsedData.map((item) => <InvoiceItem key={item.orderId} item={item} />)}</ul>
+            <ul  style={{width: "95%"}}>{parsedData !== null ? <>{parsedData.map((item) => <InvoiceItem key={item.orderId} item={item} />)}</> : <></>}</ul>
         )
     }
     
@@ -123,10 +111,10 @@ const InvoiceDetail = () => {
                 <h1 className="new-heading">New Invoice</h1>
                 <div className="image">
                     <div className="details">
-                        <h3>{parrsedDetails.CompanyName}</h3>
-                        <p>{parrsedDetails.Address}</p>
-                        <p>{parrsedDetails.Number}</p>
-                        <p>{parrsedDetails.Gmail}</p>
+                        <h3>{parrsedDetails.CompanyName !== null ? parrsedDetails.CompanyName : ""}</h3>
+                        <p>{parrsedDetails.Address !== null ? parrsedDetails.Address : ""}</p>
+                        <p>{parrsedDetails.Number !== null ? parrsedDetails.Number : ""}</p>
+                        <p>{parrsedDetails.Gmail !== null ? parrsedDetails.Gmail : ""}</p>
                     </div>
                     <h1 style={{color: "#fff"}}>Invoice</h1>
                 </div>
