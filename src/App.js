@@ -5,8 +5,7 @@ import InvoiceDetail from "./components/InvoiceDetail"
 import ProductList from "./components/ProductList"
 import ProductForm from "./components/ProductForm";
 
-function App(){
-  return  ( <>
+const App = () => (
     <HashRouter>
       <Routes>
         <Route path="/"  element={<InvoiceList />} />
@@ -15,9 +14,7 @@ function App(){
         <Route path="/product-form" element={<ProductForm />} />
       </Routes>
     </HashRouter>
-      
-    </>)    
-     }
+    )    
   
 
 export default App;
