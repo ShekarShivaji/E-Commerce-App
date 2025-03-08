@@ -1,4 +1,4 @@
-import {BrowserRouter , Route,Routes } from "react-router-dom"
+import {HashRouter , Route,Routes } from "react-router-dom"
 import './App.css';
 import InvoiceList from "./components/InvoiceList"
 import InvoiceDetail from "./components/InvoiceDetail"
@@ -7,14 +7,14 @@ import ProductForm from "./components/ProductForm";
 
 function App(){
   return  ( <>
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/"  element={<InvoiceList />} />
         <Route path="/invoice" element={<InvoiceDetail />} />
         <Route path="/product-list"  element={<ProductList />} />
         <Route path="/product-form" element={<ProductForm />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
       
     </>)    
      }
